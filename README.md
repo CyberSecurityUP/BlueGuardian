@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# BlueGuardian
-=======
 # BlueGuardian AI
 
 > Advanced Blue Team Security Analysis Framework powered by Multiple AI Models
