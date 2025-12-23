@@ -7,7 +7,6 @@ __pycache__/
 build/
 develop-eggs/
 dist/
-downloads/
 eggs/
 .eggs/
 lib/
@@ -48,9 +47,6 @@ logs/
 *.log
 
 # Storage
-storage/
-artifacts/
-reports/
 
 # Testing
 .pytest_cache/
@@ -66,8 +62,6 @@ dmypy.json
 .pyre/
 
 # Documentation
-docs/_build/
-site/
 
 # Docker
 *.tar
