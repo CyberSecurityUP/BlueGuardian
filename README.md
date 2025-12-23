@@ -473,4 +473,3 @@ MIT License - see [LICENSE](LICENSE) for details.
 ---
 
 **Made with ❤️ for the Blue Team community**
->>>>>>> 8ac350f (Initial commit)
