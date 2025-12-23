@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # BlueGuardian AI Backend API (only)
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: blueguardian-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-sk-ant-test}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-sk-test}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY:-test}
+      - VIRUSTOTAL_API_KEY=${VIRUSTOTAL_API_KEY:-}
+      - ENABLE_MULTI_MODEL_CONSENSUS=${ENABLE_MULTI_MODEL_CONSENSUS:-false}
+      - ENABLE_SIEM_INTEGRATION=${ENABLE_SIEM_INTEGRATION:-false}
+      - ENABLE_DOCKER_SANDBOX=${ENABLE_DOCKER_SANDBOX:-false}
+    restart: unless-stopped
+    networks:
+      - blueguardian-network
+
+networks:
+  blueguardian-network:
+    driver: bridge

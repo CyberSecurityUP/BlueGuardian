@@ -1,0 +1,140 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# Storage
+storage/
+artifacts/
+reports/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# Documentation
+docs/_build/
+site/
+
+# Docker
+*.tar
+docker-compose.override.yml
+
+# Malware samples (NEVER commit actual malware!)
+samples/
+*.exe
+*.dll
+*.bin
+*.dump
+*.dmp
+
+# Node (frontend)
+node_modules/
+frontend/dist/
+frontend/build/
+.next/
+.nuxt/
+frontend/.env.local
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# API keys and secrets
+secrets/
+*.pem
+*.key
+*.crt
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# BlueGuardian specific
+uploads/
+temp-*
+.blueguardian/
+blueguardian.state
+analysis_cache/
+data/yara_rules/*.yc
+
+# Keep directory structure but ignore contents
+!uploads/README.md
+!storage/artifacts/README.md
+!storage/reports/README.md
+!logs/README.md
+!reports/README.md

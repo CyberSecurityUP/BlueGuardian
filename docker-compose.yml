@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # BlueGuardian AI Backend API
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: blueguardian-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - VIRUSTOTAL_API_KEY=${VIRUSTOTAL_API_KEY}
+      - HYBRID_ANALYSIS_API_KEY=${HYBRID_ANALYSIS_API_KEY}
+      - OTX_API_KEY=${OTX_API_KEY}
+      - ENABLE_MULTI_MODEL_CONSENSUS=${ENABLE_MULTI_MODEL_CONSENSUS:-true}
+      - CONSENSUS_PROVIDERS=${CONSENSUS_PROVIDERS:-claude,openai}
+      - ENABLE_SIEM_INTEGRATION=${ENABLE_SIEM_INTEGRATION:-false}
+      - SIEM_TYPE=${SIEM_TYPE:-splunk}
+      - SPLUNK_HEC_TOKEN=${SPLUNK_HEC_TOKEN}
+      - SPLUNK_HEC_URL=${SPLUNK_HEC_URL}
+      - ELASTICSEARCH_URL=${ELASTICSEARCH_URL}
+      - AZURE_WORKSPACE_ID=${AZURE_WORKSPACE_ID}
+      - AZURE_SHARED_KEY=${AZURE_SHARED_KEY}
+    volumes:
+      - ./uploads:/app/uploads
+      - ./reports:/app/reports
+      - ./data:/app/data
+    restart: unless-stopped
+    networks:
+      - blueguardian-network
+
+  # BlueGuardian AI Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: blueguardian-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_URL=http://localhost:8000/api/v1
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - blueguardian-network
+
+  # Optional: Sandbox container for malware analysis
+  sandbox:
+    build:
+      context: .
+      dockerfile: Dockerfile.sandbox
+    container_name: blueguardian-sandbox
+    network_mode: none  # Isolated network
+    volumes:
+      - sandbox-samples:/samples
+    restart: "no"
+    networks:
+      - blueguardian-network
+
+networks:
+  blueguardian-network:
+    driver: bridge
+
+volumes:
+  sandbox-samples:

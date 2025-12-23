@@ -1,0 +1,72 @@
+# Core
+python-dotenv>=1.0.0
+pydantic>=2.0
+pydantic-settings>=2.0
+rich>=13.0
+typer>=0.9
+loguru>=0.7
+
+# AI Providers
+anthropic>=0.18
+openai>=1.12
+google-generativeai>=0.3
+ollama>=0.1
+
+# MCP
+mcp>=0.1
+
+# Malware Analysis
+pefile>=2023.2
+pyelftools>=0.30
+yara-python>=4.3
+capstone>=5.0
+unicorn>=2.0
+
+# Document Analysis
+olefile>=0.46
+oletools>=0.60
+PyPDF2>=3.0
+python-docx>=1.0
+pylnk3>=0.4
+
+# Email Analysis
+email-validator>=2.0
+dnstwist>=20231129
+publicsuffixlist>=0.10
+eml-parser>=1.17
+
+# Forensics
+volatility3>=2.5
+
+# Deobfuscation
+jsbeautifier>=1.14
+pycryptodome>=3.19
+
+# Web/API
+fastapi>=0.109
+uvicorn[standard]>=0.27
+websockets>=12.0
+
+# Docker
+docker>=7.0
+
+# Threat Intelligence
+vt-py>=0.18
+mitreattack-python>=3.0
+OTXv2>=1.5
+
+# Utils
+requests>=2.31
+aiohttp>=3.9
+python-magic>=0.4
+ssdeep>=3.4
+aiofiles>=23.0
+httpx>=0.26
+
+# Development
+pytest>=7.4
+pytest-asyncio>=0.21
+pytest-cov>=4.1
+black>=23.12
+ruff>=0.1
+mypy>=1.8
